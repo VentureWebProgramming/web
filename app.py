@@ -1,6 +1,8 @@
 from flask import Flask, render_template
 app = Flask(__name__)
 
+import estimation__, petition__, job__, reservation__
+
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -35,12 +37,4 @@ def reservation():
 
 if __name__ == "__main__":
     app.run(debug=True, use_reloader=True)
-
-
-# 소개 - 카페 풍경
-# 메뉴
-# 찾아오는길
-# 이용후기
-# 청원 - 정보입력창
-# 구인구직
-# 프로그램 소개/예약 - 정보입력창
+    
