@@ -1,7 +1,10 @@
 from flask import Flask, render_template
 app = Flask(__name__)
 
-import estimation__, petition__, job__, reservation__
+import petition__, job__, reservation__
+from estimation__ import Estimation
+
+est = Estimation()
 
 @app.route("/")
 def index():
