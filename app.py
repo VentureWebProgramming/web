@@ -1,10 +1,11 @@
 from flask import Flask, render_template
 app = Flask(__name__)
 
-import petition__, job__, reservation__
-from estimation__ import Estimation
+import petition__, reservation__
+from estandjob__ import EstAndJob
 
-est = Estimation()
+Est = EstAndJob("estimation")
+Job = EstAndJob("job")
 
 @app.route("/")
 def index():
