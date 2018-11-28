@@ -7,15 +7,24 @@ class EstAndJob:
         self.Data = {"idNum__": 0}
         self.str = str
 
+    # arg 시간, 닉네임 -> 저장된 json 파일경로 return
     def GetFilePath(self, time, name):
         return "./data/" + self.str + "/" + str(time) + "+" + name + ".json"
 
+    # time, name, passwd, content, score 저장
     def SaveData(self, time, name, passwd, content, score):
         f = open(self.GetFilePath(time, name), 'w')
-        obj = {"time": time, "name": name, "passwd": passwd, "content": content, "score": score}
+        obj = {
+            "time": time,
+            "name": name,
+            "passwd": passwd,
+            "content": content,
+            "score": score
+        }
         f.write(json.dumps(obj))
         f.close()
 
+    # time1 -> time2, 나머지 데이터도 변경
     def ChangeData(self, time1, time2, name, passwd, content, score):
         if os.path.isfile(self.GetFilePath(time1, name)):
             os.remove(self.GetFilePath(time1, name))
@@ -24,6 +33,7 @@ class EstAndJob:
         f.write(json.dumps(obj))
         f.close()
 
+    # 수정을 위해 time, name과 passwd가 맞는지 체크
     def CheckPassword(self, time, name, passwd):
         if os.path.isfile(self.GetFilePath(time, name)):
             f = open(self.GetFilePath(time, name), 'r')

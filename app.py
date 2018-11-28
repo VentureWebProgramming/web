@@ -1,11 +1,16 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect
+import json
 app = Flask(__name__)
 
 import petition__, reservation__
 from estandjob__ import EstAndJob
+from petition__ import Petition
+from reservation__ import Reservation
 
 Est = EstAndJob("estimation")
 Job = EstAndJob("job")
+Pet = Petition()
+Rev = Reservation()
 
 @app.route("/")
 def index():
@@ -38,6 +43,12 @@ def job():
 @app.route("/reservation")   # 예약
 def reservation():
     return render_template("reservation.html")
+
+@app.route("/reservation/reservation", methods=['POST'])
+def reserve():
+    reserve_data = json.loads(request.data)
+    return Rev.Reserve(reserve_data)
+
 
 if __name__ == "__main__":
     app.run(debug=True, use_reloader=True)
