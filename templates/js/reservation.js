@@ -16,10 +16,15 @@ function submitting() {
 
         const data = JSON.stringify({
             "name": document.querySelector("#name").value,
-            "time": new Date().toLocaleString(),
+            "now": new Date().toLocaleString(),
+            "reserveTime": new Date().toLocaleString(),
             "people": parseInt(document.querySelector("#people").value)
         })
         console.log(data)
         xhr.send(data)
     }
 }
+
+(function getReservation() {
+    
+})()
