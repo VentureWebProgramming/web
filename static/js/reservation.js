@@ -31,7 +31,10 @@ function submitting() {
     xhr.setRequestHeader("Content-Type", "application/json")
     xhr.onreadystatechange = function () {
         if (xhr.readystate === 4 && xhr.status === 200) {
-            const json = JSON.parse(xhr.responseText);
+            const arrayOfJSON = JSON.parse(xhr.responseText);
+            for(let i = 0; i < arrayOfJSON.length; i++) {
+                console.log(arrayOfJSON[i])
+            }
         }
     }
     xhr.send()
