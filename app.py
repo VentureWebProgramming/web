@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, url_for
 import json
 app = Flask(__name__)
 
@@ -45,10 +45,13 @@ def reservation():
     return render_template("reservation.html")
 
 @app.route("/reservation/reservation", methods=['POST'])
-def reserve():
+def Reserve():
     reserve_data = json.loads(request.data)
     return Rev.Reserve(reserve_data)
 
+@app.route("/reservation/data")
+def getAllData():
+    return Rev.getAllData()
 
 if __name__ == "__main__":
     app.run(debug=True, use_reloader=True)
