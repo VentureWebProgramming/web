@@ -1,15 +1,15 @@
 function submitting() {
-    if(document.querySelector("#name").value === '' || document.querySelector("#people").value === '') {
+    if (document.querySelector("#name").value === '' || document.querySelector("#people").value === '') {
         console.log("you must fill these forms")
-    } else if(isNaN(parseInt(document.querySelector("#people")))) {
+    } else if (isNaN(parseInt(document.querySelector("#people").value))) {
         console.log("you must input people num")
-    }else {
+    } else {
         const xhr = new XMLHttpRequest()
         xhr.open("POST", "http://localhost:5000/reservation/reservation", true)
         xhr.setRequestHeader("Content-Type", "application/json")
-        xhr.onreadystatechange = function() {
-            if(xhr.readyState === 4 && xhr.status === 200) {
-                let json = JSON.parse(xhr.responseText);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                const json = JSON.parse(xhr.responseText);
                 console.log(json.success)
             }
         }
@@ -26,5 +26,21 @@ function submitting() {
 }
 
 (function getReservation() {
-    
+    const xhr = new XMLHttpRequest()
+    xhr.open("GET", "http://localhost:5000/reservation/data", true)
+    xhr.setRequestHeader("Content-Type", "application/json")
+    xhr.onreadystatechange = function () {
+        if (xhr.readystate === 4 && xhr.status === 200) {
+            const json = JSON.parse(xhr.responseText);
+        }
+    }
+    xhr.send()
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            var json = JSON.parse(xhr.responseText);
+            console.log(json.email + ", " + json.password);
+        }
+    };
+    xhr.send();
 })()
