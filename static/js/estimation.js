@@ -9,17 +9,18 @@ function submitting() {
         xhr.setRequestHeader("Content-Type", "application/json")
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
-                let json = JSON.parse(xhr.responseText);
+                const json = JSON.parse(xhr.responseText);
                 console.log(json.success)
             }
         }
 
         const data = JSON.stringify({
             "name": document.querySelector("#name").value,
-            "time": new Date().toLocaleString(),
+            "now": new Date().toLocaleString(),
             "body": document.querySelector("#body").value,
             "password": document.querySelector("#password").value
         })
+        console.log(data)
         xhr.send(data)
     }
 }

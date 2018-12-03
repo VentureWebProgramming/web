@@ -28,14 +28,14 @@ function submitting() {
 (function getReservation() {
     const xhr = new XMLHttpRequest()
     xhr.open("GET", "http://localhost:5000/reservation/data", true)
-    // xhr.setRequestHeader("Content-Type", "text/plain")
+    xhr.setRequestHeader("Content-Type", "text/plain")
     xhr.onreadystatechange = function () {
         if (xhr.readystate === 4 && xhr.status === 200) {
-            console.log(xhr.responseText)
-            // const arrayOfJSON = JSON.parse(xhr.responseText);
-            // for(let i = 0; i < arrayOfJSON.length; i++) {
-            //     console.log(arrayOfJSON[i])
-            // }
+            console.log(xhr.responseText);
+            //const arrayOfJSON = JSON.parse(xhr.responseText);
+            //for(let i = 0; i < arrayOfJSON.length; i++) {
+            //    console.log(arrayOfJSON[i])
+            //}
         }
     }
     xhr.send()
