@@ -5,5 +5,16 @@
   </head>
   <body>
     <h1>예약</h1>
+
+    <div id="reserve">
+      <input type="text" id="name" placeholder="Your Name"><br>
+      <input type="text" id="people" placeholder="Number of People"><br>
+      <input type="password" id="password" placeholder="Your Reservation's Password"><br>
+      <button onclick="submitting()">Submit</button>
+    </div>
+
+    <div id="list"></div>
+
+    <script src="{{ url_for('static', filename='js/reservation.js') }}"></script> 
   </body>
 </html>

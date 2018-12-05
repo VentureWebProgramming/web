@@ -5,5 +5,16 @@
   </head>
   <body>
     <h1>평가</h1>
+
+    <div id="write">
+      <input type="text" id="name" placeholder="Your Name"><br>
+      <input type="password" id="password" placeholder="This Article's Password"><br>
+      <textarea id="body" cols="40" rows="5"></textarea>
+      <button onclick="writing()">Submit</button>
+    </div>
+
+    <div id="bulletin"></div>
+
+    <script src="{{ url_for('static', filename='js/estimation.js') }}"></script>
   </body>
 </html>
