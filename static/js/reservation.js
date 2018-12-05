@@ -32,7 +32,8 @@ function submitting() {
     xhr.setRequestHeader("Content-Type", "text/plain")
     xhr.onreadystatechange = function () {
         if (xhr.readyState == XMLHttpRequest.DONE) {
-            console.log(xhr.responseText);
+            const json = JSON.parse(xhr.responseText);
+            console.log(json)
             //const arrayOfJSON = JSON.parse(xhr.responseText);
             //for(let i = 0; i < arrayOfJSON.length; i++) {
             //    console.log(arrayOfJSON[i])
