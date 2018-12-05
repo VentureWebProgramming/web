@@ -30,7 +30,7 @@ function submitting() {
     xhr.open("GET", "http://localhost:5000/reservation/data", true)
     xhr.setRequestHeader("Content-Type", "text/plain")
     xhr.onreadystatechange = function () {
-        if (xhr.readystate === 4 && xhr.status === 200) {
+        if (xhr.readyState == XMLHttpRequest.DONE) {
             console.log(xhr.responseText);
             //const arrayOfJSON = JSON.parse(xhr.responseText);
             //for(let i = 0; i < arrayOfJSON.length; i++) {
