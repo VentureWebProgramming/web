@@ -1,4 +1,4 @@
-function submitting() {
+function writing() {
     if (document.querySelector("#name").value === '' || document.querySelector("#people").value === '' || document.querySelector("#password").value === '') {
         console.log("you must fill these forms")
     } else if (isNaN(parseInt(document.querySelector("#people").value))) {

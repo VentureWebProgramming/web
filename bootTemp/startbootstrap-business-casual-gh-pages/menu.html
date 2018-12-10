@@ -18,7 +18,11 @@
     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/business-casual.min.css" rel="stylesheet">
+    <link href="css/business-casual.css" rel="stylesheet">
+    
+    <style type="text/css">
+    .tab {margin-left: 40px;}
+    </style>
 
   </head>
 
@@ -38,12 +42,12 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav mx-auto">
-            <li class="nav-item active px-lg-4">
+            <li class="nav-item px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="about.html">소개
                 <span class="sr-only">(current)</span>
               </a>
             </li>
-            <li class="nav-item px-lg-4">
+            <li class="nav-item active px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="menu.html">메뉴</a>
             </li>
             <li class="nav-item px-lg-4">
@@ -66,29 +70,127 @@
       </div>
     </nav>
 
-    <section class="page-section about-heading">
+    <section class="page-section cta">
       <div class="container">
-        <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="img/about.jpg" alt="">
-        <div class="about-heading-content">
-          <div class="row">
-            <div class="col-xl-9 col-lg-10 mx-auto">
-              <div class="bg-faded rounded p-5">
-                <h2 class="section-heading mb-4">
-                  <span class="section-heading-upper">Strong Coffee, Strong Roots</span>
-                  <span class="section-heading-lower">About Our Cafe</span>
-                </h2>
-                <p>Founded in 1987 by the Hernandez brothers, our establishment has been serving up rich coffee sourced from artisan farmers in various regions of South and Central America. We are dedicated to travelling the world, finding the best coffee, and bringing back to you here in our cafe.</p>
-                <p class="mb-0">We guarantee that you will fall in <em>lust</em> with our decadent blends the moment you walk inside until you finish your last sip. Join us for your daily routine, an outing with friends, or simply just to enjoy some alone time.</p>
-              </div>
+        <div class="row">
+          <div class="col-xl-9 mx-auto">
+            <div class="cta-inner text-center rounded">
+              <h2 class="section-heading mb-5">
+                <span class="section-heading-upper">들어오세요</span>
+                <span class="section-heading-lower">우리의 메뉴</span>
+              </h2>
+              <ul class="list-unstyled list-hours mb-5 text-left mx-auto">
+                <li class="list-unstyled-item list-hours-item d-flex">
+                  녹차(綠茶)
+                </li>
+                   <li class="list-unstyled-item list-hours-item d-flex tab">
+                  은향(세작)
+                  <span class="list-unstyled-item list-hours-exp d-flex">지리산 양생차의 자연향이 가득한 차 잎으로 만든 차</span>
+                  <span class="ml-auto">2,500원</span>
+                </li>
+                   <li class="list-unstyled-item list-hours-item d-flex tab">
+                  연향(죽로)
+                  <span class="list-unstyled-item list-hours-exp d-flex">지리산 대나무 숲에서 이슬을 받고 자란 죽로차</span>
+                  <span class="ml-auto">2,000원</span>
+                </li>
+                   <li class="list-unstyled-item list-hours-item d-flex tab">
+                  순향(황차)
+                  <span class="list-unstyled-item list-hours-exp d-flex">차를 제조할 때 발효를 거치면서 엽록소가 파괴되어 황색으로 된 차</span>
+                  <span class="ml-auto">2,500원</span>
+                </li>
+                   <li class="list-unstyled-item list-hours-item d-flex tab">
+                  쟈스민차
+                  <span class="list-unstyled-item list-hours-exp d-flex">반발효차에 쟈스민꽃이 첨가된 차</span>
+                  <span class="ml-auto">2,000원</span>
+                </li>
+                   <li class="list-unstyled-item list-hours-item d-flex tab">
+                  설향(말차)
+                  <span class="list-unstyled-item list-hours-exp d-flex">	채광재배한 녹차를 갈아만든 가루차</span>
+                  <span class="ml-auto">4,500원</span>
+                </li>
+                <li class="list-unstyled-item list-hours-item d-flex">
+                  대용차(代用茶)
+                </li>
+                  <li class="list-unstyled-item list-hours-item d-flex tab">
+                  솔바람차
+                  <span class="list-unstyled-item list-hours-exp d-flex">솔잎을 흑설탕과 함께 오랜기간 발효시킨 음료</span>
+                  <span class="ml-auto">3,000원</span>
+                </li>
+                  <li class="list-unstyled-item list-hours-item d-flex tab">
+                  오미자차
+                  <span class="list-unstyled-item list-hours-exp d-flex">단맛, 신맛, 쓴맛, 짠맛, 매운맛의 다섯가지 맛이 나는 차</span>
+                  <span class="ml-auto">3,000원</span>
+                </li>
+                  <li class="list-unstyled-item list-hours-item d-flex tab">
+                  매실차
+                  <span class="list-unstyled-item list-hours-exp d-flex">강한 살균과 해독작용으로 여름철에 권할 만한 음료</span>
+                  <span class="ml-auto">2,500원</span>
+                </li>
+                  <li class="list-unstyled-item list-hours-item d-flex tab">
+                  쌍화탕
+                  <span class="list-unstyled-item list-hours-exp d-flex">백작약, 황기, 당귀, 숙지황, 천궁, 계파, 감초, 생강, 대추등으로 만든 탕</span>
+                  <span class="ml-auto">3,500원</span>
+                </li>
+                  <li class="list-unstyled-item list-hours-item d-flex tab">
+                  국화차
+                  <span class="list-unstyled-item list-hours-exp d-flex">건조시킨 국화를 뜨거운 물에 우려 마시는 차</span>
+                  <span class="ml-auto">2,500원</span>
+                </li>
+                  <li class="list-unstyled-item list-hours-item d-flex tab">
+                  계피차
+                  <span class="list-unstyled-item list-hours-exp d-flex">생강, 계피를 끓인 차</span>
+                  <span class="ml-auto">2,500원</span>
+                </li>
+                  <li class="list-unstyled-item list-hours-item d-flex tab">
+                  모과차
+                  <span class="list-unstyled-item list-hours-exp d-flex">모과를 꿀과 설탕에 잰 차</span>
+                  <span class="ml-auto">2,500원</span>
+                </li>
+                  <li class="list-unstyled-item list-hours-item d-flex tab">
+                  대추탕
+                  <span class="list-unstyled-item list-hours-exp d-flex">대추를 끓인 원액</span>
+                  <span class="ml-auto">2,500원</span>
+                </li>
+                  </li>
+                <li class="list-unstyled-item list-hours-item d-flex">
+                  떡
+                  <span class="list-unstyled-item list-hours-exp d-flex">약식, 경단, 콩떡 등…</span>
+                  <span class="ml-auto">1,500원</span>
+                </li>
+                <li class="list-unstyled-item list-hours-item d-flex">
+                  다식
+                  <span class="list-unstyled-item list-hours-exp d-flex">송화, 흑임자, 녹두녹말, 오미자, 콩, 청태</span>
+                  <span class="ml-auto">1,500원</span>
+                </li>
+                <li class="list-unstyled-item list-hours-item d-flex">
+                  다구/녹차류
+                  <span class="ml-auto">1,500원</span>
+                </li>
+              </ul>
+              <p class="address mb-5">
+                <em>
+                  <strong>서울대학교 두레문예관(67동) 1층</strong>
+                  <br>
+                  서울특별시 관악구
+                </em>
+              </p>
+              <p class="mb-0">
+                <small>
+                  <em>평일 10:30 ~ 17:30</em>
+                </small>
+                <br>
+                (02) 880-6244
+              </p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
+
     <footer class="footer text-faded text-center py-5">
       <div class="container">
-        <p class="m-0 small">Copyright &copy; Your Website 2018</p>
+        <p class="m-0 small">Copyright by 다향만당 &copy; Your Website 2018</p>
       </div>
     </footer>
 
@@ -97,5 +199,10 @@
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   </body>
+
+  <!-- Script to highlight the active date in the hours list -->
+  <script>
+    $('.list-hours li').eq(new Date().getDay()).addClass('today');
+  </script>
 
 </html>
