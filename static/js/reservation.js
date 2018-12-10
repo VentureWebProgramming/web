@@ -53,6 +53,7 @@
           xhr.onreadystatechange = function () {
               if (xhr.readyState === 4 && xhr.status === 200) {
                   const json = JSON.parse(xhr.responseText);
+                  console.log(json)
                   if (json.success) {
                       alert("예약이 완료되었습니다.")
                   } else {

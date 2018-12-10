@@ -4,8 +4,8 @@ class DataControl:
     def __init__(self, kind, listNum):
         self.kind = kind
         self.directory = "./data/" + kind
-        self.successRet = '{"success": "True"}'
-        self.failedRet = '{"success": "False"}'
+        self.successRet = '{"success": true}'
+        self.failedRet = '{"success": false}'
         self.listNum = listNum
 
     # arg 시간, 닉네임 -> 저장된 json 파일경로 return
@@ -25,6 +25,20 @@ class DataControl:
             return self.successRet
         except IOError:
             return self.failedRet
+        
+    # 예약 시간이 비어있는지 확인
+    def checkReservation(self, data):
+        if os.path.exists(self.directory):
+            for filename in os.listdir(self.directory):
+                try:
+                    f = open(self.directory+"/"+filename, 'r')
+                    obj = json.load(f)
+                    f.close()
+                    if obj["reserveTime"] == data["reserveTime"]:
+                        return False
+                except IOError:
+                    return False
+        return True
     
     # 모든 정보 불러오기
     def getData(self, idx):
@@ -41,22 +55,6 @@ class DataControl:
                     return self.failedRet
             ret = ret[0:len(ret)-1] + "]"
         return ret
-        
-    # 예약 시간이 비어있는지 확인
-    def checkReservation(self, data):
-        if os.path.exists(self.directory):
-            for filename in os.listdir(self.directory):
-                try:
-                    f = open(self.directory+"/"+filename, 'r')
-                    obj = json.load(f)
-                    f.close()
-                    if obj["reserveTime"] == json.loads(data)["reserveTime"]:
-                        return False
-                    return True
-                except IOError:
-                    return False
-        else:
-            return False
 
     # 비밀번호 확인
     def passwdCheck(self, now, name, passwd):
@@ -82,6 +80,3 @@ class DataControl:
             return self.saveData(data)
         else:
             return self.failedRet
-
-d = DataControl("reservation", 5)
-print(d.checkReservation('{"name": "JJJ", "now": "2018. 12. 4. \uc624\uc804 3:28:25", "reserveTime": "208. 12. 4. \uc624\uc804 3:28:25", "people": 5, "email": "wiseca"}'))
