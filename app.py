@@ -1,6 +1,10 @@
 from flask import Flask, render_template, request, Response
+from flask_mail import Mail
 import json, os, math
+
 app = Flask(__name__)
+mail = Mail(app)
+
 
 from data_control import DataControl
 
