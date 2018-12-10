@@ -11,14 +11,14 @@
     <title>Business Casual - Start Bootstrap Theme</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/business-casual.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/business-casual.min.css') }}" rel="stylesheet">
 
   </head>
 
@@ -39,27 +39,27 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav mx-auto">
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="about.html">소개
+              <a class="nav-link text-uppercase text-expanded" href="about">소개
                 <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="menu.html">메뉴</a>
+              <a class="nav-link text-uppercase text-expanded" href="menu">메뉴</a>
             </li>
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="map.html">찾아오는 길</a>
+              <a class="nav-link text-uppercase text-expanded" href="map">찾아오는 길</a>
             </li>
             <li class="nav-item active px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="review.html">이용후기</a>
+              <a class="nav-link text-uppercase text-expanded" href="review">이용후기</a>
             </li>
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="petition.html">청원</a>
+              <a class="nav-link text-uppercase text-expanded" href="petition">청원</a>
             </li>
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="recruit.html">구인구직</a>
+              <a class="nav-link text-uppercase text-expanded" href="recruit">구인구직</a>
             </li>
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="program.html">프로그램 소개/예약</a>
+              <a class="nav-link text-uppercase text-expanded" href="program">프로그램 소개/예약</a>
             </li>
           </ul>
         </div>
@@ -68,7 +68,7 @@
     
     <section class="page-section about-heading">
       <div class="container">
-        <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="img/products-05.jpg" alt="">
+        <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="{{ url_for('static', filename='img/products-05.jpg') }}" alt="">
         <div class="about-heading-content">
           <div class="row">
             <div class="col-xl-9 col-lg-10 mx-auto">
@@ -96,8 +96,8 @@
     </footer>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
 
   </body>
 

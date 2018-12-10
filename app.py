@@ -7,21 +7,25 @@ from data_control import DataControl
 listNum = 5
 
 Data = {}
-Data["estimation"] = DataControl("estimation", listNum)
-Data["job"] = DataControl("job", listNum)
+Data["review"] = DataControl("review", listNum)
+Data["recruit"] = DataControl("recruit", listNum)
 Data["petition"] = DataControl("petition", listNum)
 Data["reservation"] = DataControl("reservation", listNum)
-
+"{{ url_for('static', filename='js/estimation.js') }}"
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("about.html")
 
 @app.route("/<kind>")
 def rendering(kind):
-    return render_template(kind+".html", length=math.ceil(len(os.listdir("./data/"+kind))/listNum))
+    print(kind)
+    if os.path.exists("./data/"+kind+"/"):
+        return render_template(kind+".html", length=math.ceil(len(os.listdir("./data/"+kind))/listNum))
+    return render_template(kind+".html")
 
 @app.route("/<kind>/write", methods=['POST'])
 def write(kind):
+    print("AA")
     data = json.loads(request.data)
     return Data[kind].saveData(data)
 
@@ -33,6 +37,7 @@ def rewrite(kind):
 
 @app.route("/<kind>/data/<idx>")
 def getData(kind, idx):
+    print("ASADSS")
     return Response(response=Data[kind].getData(idx), status=200, mimetype='text/plain')
 
 # Server Start
