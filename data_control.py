@@ -38,6 +38,23 @@ class DataControl:
                 except IOError:
                     return False
         return True
+
+    # 후기 삭제
+    def deleteReview(self, data):
+        try:
+            filename = os.listdir(self.directory)[data["id"]]
+        except IndexError:
+            return self.failedRet
+        try:
+            f = open(self.directory+"/"+filename, 'w')
+            obj = json.load(f)
+            f.close()
+            if obj["password"] == data["password"]:
+                os.remove(self.directory+"/"+filename)
+                return self.successRet
+        except IOError:
+            return self.failedRet
+        return self.failedRet
     
     # 모든 정보 불러오기
     def getData(self):
