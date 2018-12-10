@@ -50,5 +50,5 @@ class DataControl:
             except IOError:
                 return self.failedRet
         ret = ret[0:len(ret)-1] + "]"
+        print(ret)
         return ret
-        

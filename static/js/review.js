@@ -10,7 +10,7 @@ function reviewSubmit() {
                 const json = JSON.parse(xhr.responseText);
                 console.log(json.success)
                 if(json.success) {
-                    window.location = "http://localhost/review";
+                    window.location = "http://localhost:5000/review";
                 } else {
                     alert("fail")
                 }  

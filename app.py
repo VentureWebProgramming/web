@@ -26,14 +26,9 @@ def write(kind):
     data = json.loads(request.data)
     return Data[kind].saveData(data)
 
-@app.route("/<kind>/rewrite", methods=['POST'])
-def rewrite(kind):
-    data = json.loads(request.data)
-    return Data[kind].changeData(data)
-
 @app.route("/review/data")
-def getData(kind):
-    return Response(response=Data[kind].getData(), status=200, mimetype='text/plain')
+def getData():
+    return Response(response=Data["review"].getData(), status=200, mimetype='text/plain')
 
 # Server Start
 if __name__ == "__main__":
