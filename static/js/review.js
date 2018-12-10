@@ -19,6 +19,7 @@ function reviewSubmit() {
 
         const data = JSON.stringify({
             "name": document.querySelector("#rname").value,
+            "password": document.querySelector("#rpassword").value,
             "now": new Date().toLocaleString(),
             "body": document.querySelector("#rmsg").value
         })
@@ -63,6 +64,11 @@ function reviewSubmit() {
         if (xhr.readyState == XMLHttpRequest.DONE) {
             const json = JSON.parse(xhr.responseText);
             console.log(json)
+            for(let i = 0; i < json.length; i++) {
+                document.querySelector("#rList").innerHTML += `<li>${json[i]["name"]}  ${json[i]["body"]}`
+                document.querySelector("#rList").innerHTML += `<button type="button" class="btn btn-danger" id=${i} onclick=deleteReview(${i})>Delete</button>`
+                document.querySelector("#rList").innerHTML += '<input type="password" name="fname" id="deletePass"></li>'
+            }
             //const arrayOfJSON = JSON.parse(xhr.responseText);
             //for(let i = 0; i < arrayOfJSON.length; i++) {
             //    console.log(arrayOfJSON[i])
@@ -71,3 +77,31 @@ function reviewSubmit() {
     }
     xhr.send()
 })()
+
+function deleteReview(me) {
+    if(document.querySelector("#deletePass").value === '') {
+        alert("글을 지우려면 비밀번호를 입력하세요")
+    } else {
+        const xhr = new XMLHttpRequest()
+        xhr.open("POST", "http://localhost:5000/review/delete", true)
+        xhr.setRequestHeader("Content-Type", "application/json")
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                const json = JSON.parse(xhr.responseText);
+                console.log(json.success)
+                if(json.success) {
+                    window.location = "http://localhost:5000/review";
+                } else {
+                    alert("fail")
+                }  
+            }
+        }
+
+        const data = JSON.stringify({
+            "id": parseInt(document.querySelector(`#${me}`).value),
+            "password": document.querySelector("#deletePass").value,
+        })
+        console.log(data)
+        xhr.send(data)
+    }
+}
