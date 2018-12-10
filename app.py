@@ -45,7 +45,9 @@ def write(kind):
 
 @app.route("/review/data")
 def getData():
-    return Response(response=Data["review"].getData(), status=200, mimetype='text/plain')
+    data = Data["review"].getData()
+    print(data)
+    return Response(response=data, status=200, mimetype='text/plain')
 
 @app.route("/review/delete", methods=['POST'])
 def deleteReview():

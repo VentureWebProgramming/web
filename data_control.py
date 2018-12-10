@@ -42,13 +42,17 @@ class DataControl:
     # 후기 삭제
     def deleteReview(self, data):
         try:
+            print(os.listdir(self.directory))
             filename = os.listdir(self.directory)[data["id"]]
+            print(filename)
         except IndexError:
             return self.failedRet
         try:
-            f = open(self.directory+"/"+filename, 'w')
+            print(self.directory+"/"+filename)
+            f = open(self.directory+"/"+filename, 'r')
             obj = json.load(f)
             f.close()
+            print(obj["password"], data["password"])
             if obj["password"] == data["password"]:
                 os.remove(self.directory+"/"+filename)
                 return self.successRet
