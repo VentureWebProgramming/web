@@ -133,22 +133,26 @@
 </head>
 
 <body>
-    <form action="/my-handling-form-page" method="post">
         <div>
-          <label for="name">이름:</label> <input type="text" id="name" name="user_name">
+          <label for="name">이름:</label> <input type="text" id="vname" name="user_name">
         </div>
         <div>
-          <label for="mail">이메일:</label> <input type="email" id="mail" name="user_mail">
+          <label for="mail">이메일:</label> <input type="email" id="vmail" name="user_mail">
         </div>
         <div>
-          <label for="msg">프로그램 및 희망시간:</label> <textarea id="msg" name="user_message"></textarea>
+          <label for="mail">방문 인원:</label> <input type="text" id="vpeople" name="user_num">
         </div>
+        <div>
+          <label for="msg">희망시간:</label> <input type="date" name="bday" id="vdate" min="2000-01-01"> <input type="time" name="usr_time" id="vtime">
+        </div>
+        <br/>
         <div class="button">
-          <button type="submit">예약요청</button>
+          <button type="submit" id="vreservationButton" onclick="writing()">예약요청</button>
         </div>
-    </form>
+
+        <script src="{{ url_for('static', filename='js/reservation.js') }}"></script>
 </body>             
-             
+
               </div>
             </div>
           </div>
