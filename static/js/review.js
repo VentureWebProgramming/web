@@ -67,7 +67,7 @@ function reviewSubmit() {
             for(let i = 0; i < json.length; i++) {
                 document.querySelector("#rList").innerHTML += `<li>${json[i]["name"]}  ${json[i]["body"]}`
                 document.querySelector("#rList").innerHTML += `<button type="button" class="btn btn-danger" id=${i} onclick=deleteReview(${i})>Delete</button>`
-                document.querySelector("#rList").innerHTML += '<input type="password" name="fname" id="deletePass"></li>'
+                document.querySelector("#rList").innerHTML += `<input type="password" name="fname" id="deletePass${i}"></li>`
             }
             //const arrayOfJSON = JSON.parse(xhr.responseText);
             //for(let i = 0; i < arrayOfJSON.length; i++) {
@@ -99,7 +99,7 @@ function deleteReview(me) {
 
         const data = JSON.stringify({
             "id": parseInt(document.querySelector(`#${me}`).value),
-            "password": document.querySelector("#deletePass").value,
+            "password": document.querySelector(`#deletePass${me}`).value,
         })
         console.log(data)
         xhr.send(data)
