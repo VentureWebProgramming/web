@@ -1,8 +1,9 @@
 import json, os, math
 
 class DataControl:
-    def __init__(self, path, listNum):
-        self.directory = "./data/" + path
+    def __init__(self, kind, listNum):
+        self.kind = kind
+        self.directory = "./data/" + kind
         self.successRet = '{"success": "True"}'
         self.failedRet = '{"success": "False"}'
         self.listNum = listNum
@@ -16,6 +17,8 @@ class DataControl:
     # 데이터 저장: "directory/now+name.json" 파일에 데이터 저장
     def saveData(self, data):
         try:
+            if self.kind == "reservation" and not self.checkReservation(data):
+                return self.failedRet
             f = open(self.getFilenameStr(data["now"], data["name"]), 'w')
             f.write(json.dumps(data))
             f.close()
@@ -28,21 +31,38 @@ class DataControl:
         ret = "["
         if math.ceil(len(os.listdir(self.directory))/self.listNum) < idx:
             return self.failedRet
-        for filename in os.listdir(self.directory):
-            try:
-                f = open(self.directory+"/"+filename, 'r')
-                ret += f.read()+","
-                f.close()
-            except IOError:
-                return self.failedRet
-        ret = ret[0:len(ret)-1] + "]"
+        if os.path.exists(self.directory):
+            for filename in os.listdir(self.directory):
+                try:
+                    f = open(self.directory+"/"+filename, 'r')
+                    ret += f.read()+","
+                    f.close()
+                except IOError:
+                    return self.failedRet
+            ret = ret[0:len(ret)-1] + "]"
         return ret
+        
+    # 예약 시간이 비어있는지 확인
+    def checkReservation(self, data):
+        if os.path.exists(self.directory):
+            for filename in os.listdir(self.directory):
+                try:
+                    f = open(self.directory+"/"+filename, 'r')
+                    obj = json.load(f)
+                    f.close()
+                    if obj["reserveTime"] == json.loads(data)["reserveTime"]:
+                        return False
+                    return True
+                except IOError:
+                    return False
+        else:
+            return False
 
     # 비밀번호 확인
     def passwdCheck(self, now, name, passwd):
         try:
             f = open(self.getFilenameStr(now, name), 'r')
-            obj = json.loads(f.read())
+            obj = json.load(f)
             f.close()
             if obj["password"] == passwd:
                 return True
@@ -62,3 +82,6 @@ class DataControl:
             return self.saveData(data)
         else:
             return self.failedRet
+
+d = DataControl("reservation", 5)
+print(d.checkReservation('{"name": "JJJ", "now": "2018. 12. 4. \uc624\uc804 3:28:25", "reserveTime": "208. 12. 4. \uc624\uc804 3:28:25", "people": 5, "email": "wiseca"}'))

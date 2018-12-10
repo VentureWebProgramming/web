@@ -11,7 +11,7 @@ Data["review"] = DataControl("review", listNum)
 Data["recruit"] = DataControl("recruit", listNum)
 Data["petition"] = DataControl("petition", listNum)
 Data["reservation"] = DataControl("reservation", listNum)
-"{{ url_for('static', filename='js/estimation.js') }}"
+
 @app.route("/")
 def index():
     return render_template("about.html")
@@ -25,19 +25,19 @@ def rendering(kind):
 
 @app.route("/<kind>/write", methods=['POST'])
 def write(kind):
-    print("AA")
+    print("write")
     data = json.loads(request.data)
     return Data[kind].saveData(data)
 
 @app.route("/<kind>/rewrite", methods=['POST'])
 def rewrite(kind):
-    print("Hello")
+    print("rewrite")
     data = json.loads(request.data)
     return Data[kind].changeData(data)
 
 @app.route("/<kind>/data/<idx>")
 def getData(kind, idx):
-    print("ASADSS")
+    print("data")
     return Response(response=Data[kind].getData(idx), status=200, mimetype='text/plain')
 
 # Server Start
