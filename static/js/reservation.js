@@ -46,6 +46,8 @@
   function writing() {
       if (document.querySelector("#vname").value === '' || document.querySelector("#vmail").value === '' || document.querySelector("#vdate").value === '' || document.querySelector("#vtime").value === '' || document.querySelector("#vpeople").value === '') {
           alert("위의 정보를 모두 입력한 후 예약해주세요.")
+      } else if (isNaN(parseInt(document.querySelector("#vpeople").value))) {
+        alert("방문 인원수에 숫자를 입력해주세요")
       } else {
           const xhr = new XMLHttpRequest()
           xhr.open("POST", "http://localhost:5000/reservation/write", true)
