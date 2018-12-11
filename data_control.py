@@ -16,7 +16,7 @@ class DataControl:
     # 데이터 저장: "directory/now+name.json" 파일에 데이터 저장
     def saveData(self, data):
         try:
-            if self.kind == "reservation" and not self.checkReservation(data):
+            if self.kind == "reservation" and not self.isReservationPossible(data):
                 return self.failedRet
             f = open(self.getFilenameStr(data["now"], data["name"]), 'w')
             f.write(json.dumps(data))
@@ -26,17 +26,18 @@ class DataControl:
             return self.failedRet
         
     # 예약 시간이 비어있는지 확인
-    def checkReservation(self, data):
-        if os.path.exists(self.directory):
-            for filename in os.listdir(self.directory):
-                try:
-                    f = open(self.directory+"/"+filename, 'r')
-                    obj = json.load(f)
-                    f.close()
-                    if obj["reserveTime"] == data["reserveTime"]:
-                        return False
-                except IOError:
+    def isReservationPossible(self, data):
+        if len(os.listdir(self.directory)) == 0:
+            return True
+        for filename in os.listdir(self.directory):
+            try:
+                f = open(self.directory+"/"+filename, 'r')
+                obj = json.load(f)
+                f.close()
+                if obj["reserveTime"] == data["reserveTime"]:
                     return False
+            except IOError:
+                return False
         return True
 
     # 후기 삭제
@@ -63,6 +64,8 @@ class DataControl:
     # 모든 정보 불러오기
     def getData(self):
         ret = "["
+        if len(os.listdir(self.directory)) == 0:
+            return "[]"
         for filename in os.listdir(self.directory):
             try:
                 f = open(self.directory+"/"+filename, 'r')
