@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Dahyangmandang - recruit</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static', filename='css/business-casual.css') }}" rel="stylesheet">
+
+  </head>
+
+  <body>
+    <h1 class="site-heading text-center text-white d-none d-lg-block">
+      <span class="site-heading-upper text-primary mb-3">Korean traditional tea house</span>
+      <span class="site-heading-lower">Dahyangmandang</span>
+    </h1>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">Start Bootstrap</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="about">about
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="menu">menu</a>
+            </li>
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="map">map</a>
+            </li>
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="review">review</a>
+            </li>
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="petition">petition</a>
+            </li>
+            <li class="nav-item active px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="recruit">recruit</a>
+            </li>
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="reservation">program</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <section class="page-section cta">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-9 mx-auto">
+            <div class="cta-inner text-center rounded">
+              <h2 class="section-heading mb-5">
+                <span class="section-heading-upper">recruit</span>
+                <span class="section-heading-lower">Be a tea master of Dahyangmandang</span>
+              </h2>
+              <ul class="list-unstyled list-hours mb-5 text-left mx-auto">
+                
+              </ul>
+              <p class="address mb-5">
+                <em>
+                  <strong>2019 semester 1  Tea master recruitment</strong>
+                  <br>                  
+                  <p align="left"We are hiring tea master for our outlet</p>
+                  <p align="left">1. 시간/요일: 시간 협의 / 자유로운 시간조정 가능합니다!</p>
+                  <p align="left">2. hourly wage :</p>
+                  <p align="left">•	Day shift wage : 7,530원 + weekly holiday benefit(more than 15 hours a week) + yearly hoilday benefit</p>
+                  <p align="left">3. Requirements :</p>
+                  <p align="left">Any industrious female, male who can work more than 6months</p>                     
+                  <p align="left">How to apply: Apply from<a href="https://goo.gl/forms/L11y475emJtK2sDg1">
+                  Here</a>
+                  </p>
+                  <p align="left">•	Please apply only when you can work for more than one semester</p>
+                  <p align="left">•	Dahyangmandang follows labor law</p>
+                  <p align="left">•	Benefits for working at Dahyangmandang</p>
+                  <p align="left">Tea master certification after finishing tea education</p>
+                  <p align="left">Consideration on School schedule deciding shift</p>
+                  <p align="left">Free drinks</p>
+                  <p align="left">and many other benefits(holiday gifts, incentive etc..)</p>
+                  <p align="left">Apply before it is too late!</p>
+                </em>
+              </p>
+              <p class="mb-0">
+                <small>
+                  <em>Inquiry</em>
+                </small>
+                <br>
+                (020) 880-6786
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <footer class="footer text-faded text-center py-5">
+      <div class="container">
+        <p class="m-0 small">Copyright &copy; Your Website 2018</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+
+  </body>
+
+  <!-- Script to highlight the active date in the hours list -->
+  <script>
+    $('.list-hours li').eq(new Date().getDay()).addClass('today');
+  </script>
+
+</html>

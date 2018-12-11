@@ -30,10 +30,11 @@ def favi():
 
 @app.route("/<kind>")
 def rendering(kind):
-    print(kind)
-    if kind == "review":
-        return render_template("review.html")
     return render_template(kind+".html")
+
+@app.route("/<kind>/eng")
+def eng_rendering(kind):
+    return render_template("eng/eng_"+kind+".html")
 
 @app.route("/<kind>/write", methods=['POST'])
 def write(kind):
