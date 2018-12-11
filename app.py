@@ -5,7 +5,7 @@ import json, os, math
 app = Flask(__name__)
 app.config['MAIL_SERVER'] = 'smtp.naver.com'
 app.config['MAIL_PORT'] = 587
-app.config['MAIL_USERNAME'] = 'wisechang1@naver.com'
+app.config['MAIL_USERNAME'] = 'terranada@naver.com'
 app.config['MAIL_PASSWORD'] = ''
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USE_SSL'] = False
@@ -41,7 +41,7 @@ def write(kind):
     if kind == "reservation":
         date = data["reserveTime"].split('-')
         msg = Message('다향만당 예약 확인 메일입니다',
-                      sender="wisechang1@naver.com",
+                      sender="terranada@naver.com",
                       recipients=[data["email"]])
         msg.body = date[0]+'년'+date[1]+'시'+date[2]+'분에 예약되었습니다.\n 예약해주셔서 감사합니다'
         mail.send(msg)
