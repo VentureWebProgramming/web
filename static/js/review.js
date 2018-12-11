@@ -66,9 +66,19 @@ function reviewSubmit() {
             const json = JSON.parse(xhr.responseText);
             console.log(json)
             for(let i = 0; i < json.length; i++) {
-                document.querySelector("#rList").innerHTML += `<li>${json[i]["name"]}  ${json[i]["body"]}`
-                document.querySelector("#rList").innerHTML += `<button type="button" class="btn btn-danger" id="but${i}" onclick=deleteReview(${i})>Delete</button>`
-                document.querySelector("#rList").innerHTML += `<input type="password" name="fname" id="deletePass${i}"></li>`
+                // document.querySelector("#rList").innerHTML += `<li>${json[i]["name"]}  ${json[i]["body"]}`
+                // document.querySelector("#rList").innerHTML += `<button type="button" class="btn btn-danger" id="but${i}" onclick=deleteReview(${i})>Delete</button>`
+                // document.querySelector("#rList").innerHTML += `<input type="password" name="fname" id="deletePass${i}"></li>`
+                document.querySelector("#rList").innerHTML += `
+                  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">${json[i]["name"]}</h5>
+                        <small><button type="button" class="btn btn-outline-danger btn-sm" id="but${i}" onclick=deleteReview(${i})>Delete</button></small>
+                    </div>
+                    <p class="mb-1">${json[i]["body"]}</p>
+                    <small><input type="password" class="form-control form-control-sm" name="fname" id="deletePass${i}" placeholder="글 삭제 비밀번호를 입력하고 Delete 버튼을 눌러 주세요."></small>
+                </a>
+                `
             }
             //const arrayOfJSON = JSON.parse(xhr.responseText);
             //for(let i = 0; i < arrayOfJSON.length; i++) {
