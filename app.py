@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, Response
+from flask import Flask, render_template, request, Response, url_for, redirect
 from flask_mail import Mail, Message
 import json, os, math
 
@@ -23,6 +23,10 @@ Data["reservation"] = DataControl("reservation")
 @app.route("/")
 def index():
     return render_template("about.html")
+
+@app.route("/favicon.ico")
+def favi():
+    return redirect(url_for('static', filename='favicon.png'), code=302)
 
 @app.route("/<kind>")
 def rendering(kind):
