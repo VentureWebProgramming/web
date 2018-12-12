@@ -23,9 +23,25 @@
   </head>
 
   <body>
+    <style>
+      .container {
+        position: relative;
+      }
+
+      .topright {
+        position: absolute;
+        top: 8px;
+        right: 16px;
+        font-size: 18px;
+      }
+    </style>
+    <div class="topright"><a href="about/eng">
+      <span style="color:white">English ver.</span></a></div>
+    </div>
+    
     <h1 class="site-heading text-center text-white d-none d-lg-block">
       <span class="site-heading-upper text-primary mb-3">우리의 향기가 느껴지는 전통 찻집</span>
-      <span class="site-heading-lower">다향만당</span>
+      <span class="site-heading-lower"><img src="{{ url_for('static', filename='img/logo.png') }}" width="75" height="75" alt="">     다향만당</span>
     </h1>
 
     <!-- Navigation -->

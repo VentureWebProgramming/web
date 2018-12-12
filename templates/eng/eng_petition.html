@@ -23,43 +23,58 @@
   </head>
 
   <body>
+    <style>
+      .container {
+        position: relative;
+      }
+
+      .topright {
+        position: absolute;
+        top: 8px;
+        right: 16px;
+        font-size: 18px;
+      }
+    </style>
+    <div class="topright"><a href="http://localhost:5000/petition">
+      <span style="color:white">한국어 ver.</span></a></div>
+    </div>
 
     <h1 class="site-heading text-center text-white d-none d-lg-block">
       <span class="site-heading-upper text-primary mb-3">Korean traditional tea house</span>
-      <span class="site-heading-lower">Dahyangmandang</span>
+      <span class="site-heading-lower"><img src="{{ url_for('static', filename='img/logo.png') }}" width="75" height="75" alt="">     Dahyangmandang</span>
     </h1>
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
       <div class="container">
-        <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">Start Bootstrap</a>
+        <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">NAVIGATION</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav mx-auto">
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="about">about
+              <a class="nav-link text-uppercase text-expanded" href="http://localhost:5000/about/eng">about
                 <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="menu">menu</a>
+              <a class="nav-link text-uppercase text-expanded" href="http://localhost:5000/menu/eng">menu</a>
             </li>
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="map">map</a>
+              <a class="nav-link text-uppercase text-expanded" href="http://localhost:5000/map/eng">map</a>
             </li>
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="review">review</a>
+              <a class="nav-link text-uppercase text-expanded" href="http://localhost:5000/review/eng">review</a>
             </li>
             <li class="nav-item active px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="petition">petition</a>
+              <a class="nav-link text-uppercase text-expanded" href="http://localhost:5000/petition/eng">petition</a>
             </li>
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="recruit">recruit</a>
+              <a class="nav-link text-uppercase text-expanded" href="http://localhost:5000/recruit/eng">recruit</a>
             </li>
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="reservation">program</a>
+              <a class="nav-link text-uppercase text-expanded" href="http://localhost:5000/reservation/eng">program</a>
             </li>
           </ul>
         </div>

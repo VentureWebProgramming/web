@@ -1,6 +1,6 @@
 function reviewSubmit() {
     if (document.querySelector("#rname").value === '' || document.querySelector("#rpassword").value === '' || document.querySelector("#rmsg").value === '') {
-        alert("주어진 양식을 모두 채운 후에 실행해주세요")
+        alert("Fill the blank")
     } else {
         const xhr = new XMLHttpRequest()
         xhr.open("POST", "http://localhost:5000/review/write", true)
@@ -12,8 +12,8 @@ function reviewSubmit() {
                 if(json.success) {
                     window.location = "http://localhost:5000/review";
                 } else {
-                    alert("글 등록이 실패하였습니다.")
-                }  
+                    alert("Fail")
+                }
             }
         }
 
@@ -76,7 +76,7 @@ function reviewSubmit() {
                         <small><button type="button" class="btn btn-outline-danger btn-sm" id="but${i}" onclick=deleteReview(${i})>Delete</button></small>
                     </div>
                     <p class="mb-1">${json[i]["body"]}</p>
-                    <small><input type="password" class="form-control form-control-sm" name="fname" id="deletePass${i}" placeholder="글 삭제 비밀번호를 입력하고 Delete 버튼을 눌러 주세요."></small>
+                    <small><input type="password" class="form-control form-control-sm" name="fname" id="deletePass${i}" placeholder="Write your password and click Delete."></small>
                 </a>
                 `
             }
@@ -91,7 +91,7 @@ function reviewSubmit() {
 
 function deleteReview(me) {
     if(document.querySelector(`#deletePass${me}`).value === '') {
-        alert("글을 지우려면 비밀번호를 입력하세요")
+        alert("Write password to Delete")
     } else {
         const xhr = new XMLHttpRequest()
         xhr.open("POST", "http://localhost:5000/review/delete", true)
@@ -103,7 +103,7 @@ function deleteReview(me) {
                 if(json.success) {
                     window.location = "http://localhost:5000/review";
                 } else {
-                    alert("비밀번호가 다릅니다.")
+                    alert("Wrong password")
                 }  
             }
         }
