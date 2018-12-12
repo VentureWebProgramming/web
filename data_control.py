@@ -10,8 +10,7 @@ class DataControl:
     # arg 시간, 닉네임 -> 저장된 json 파일경로 return
     def getFilenameStr(self, now, name):
         path = self.directory + "/" + now + "+" + name + ".json"
-        path = path.replace(":", ",")
-        return path.replace(" ", "")
+        return path.replace(":", ",").replace(" ", "")
 
     # 데이터 저장: "directory/now+name.json" 파일에 데이터 저장
     def saveData(self, data):
